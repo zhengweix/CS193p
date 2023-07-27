@@ -61,7 +61,7 @@ tr, td, th {
     <div class="avatar">
         <img src="https://raw.githubusercontent.com/zhengweix/CS193p/main/assests/paul_hegarty.webp" />
     </div>
-    <span style="margin-top: 10px">Instructor: <a href="https://explorecourses.stanford.edu/instructor/phegarty">Paul Hegarty</a></span>
+    <span style="margin-top: 10px">Instructor: <a href="https://explorecourses.stanford.edu/instructor/phegarty" style="color: #8C1515;">Paul Hegarty</a></span>
     <span>Semester: <i>2023 Summer</i></span>
 </div>
 
