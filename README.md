@@ -44,6 +44,9 @@ a, i {
     color: #8C1515;
     font-style: normal;
 }
+tr, td, th {
+    text-align: left;
+}
 </style>
 <div class="row">
     <div style="width: 90px; min-width: 90px; margin-right: 15px">
@@ -63,7 +66,9 @@ a, i {
 </div>
 
 ## Lectures
-|                            Lecture                             | Slide | Reading | Homework | Solutions |
-|:--------------------------------------------------------------:|:-----:|:-------:|:--------:| :----------: |
-| [1.Getting Started with SwiftUI](https://youtu.be/bqu6BquVi2M) | | | | |
-| [1.Getting Started with SwiftUI](https://youtu.be/bqu6BquVi2M) | | | | |
+|                            Lecture                             | Slide | Code | Reading | Homework | Solutions |
+|:--------------------------------------------------------------:|:-----:|:----:|:-------:|:--------:| :----------: |
+| [1.Getting Started with SwiftUI](https://youtu.be/bqu6BquVi2M) | |      | | | |
+| [2. Learning More about SwiftUI](https://youtu.be/3lahkdHEhW8) | |      | | | |
+|            [3. MVVM](https://youtu.be/--qKOhdgJAs)             | |      | | | |
+|  [4. More MVVM enum Optionals](https://youtu.be/oWZOFSYS5GE)   | |      | | | |
