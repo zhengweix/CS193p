@@ -10,8 +10,8 @@
 ## Overall
 |                            Lecture                             |          Slide           |           Code            |               Reading               |                   Homework                   | Solutions |
 |:--------------------------------------------------------------:|:------------------------:|:-------------------------:|:-----------------------------------:|:--------------------------------------------:| :----------: |
-| [1.Getting Started with SwiftUI](https://youtu.be/bqu6BquVi2M) | [Slide 1](slides/l1.pdf) |  |                                     |                                              | |
-| [2. Learning More about SwiftUI](https://youtu.be/3lahkdHEhW8) |                          | [Memorize](code/Memorize) | [Reading 1](readings/reading_1.pdf) | [Assignment 1](assignments/assignment_1.pdf) | |
-|            [3. MVVM](https://youtu.be/--qKOhdgJAs)             | [Slide 2](slides/l2.pdf) |                           |                                     |                                              | |
+| [1.Getting Started with SwiftUI](https://youtu.be/bqu6BquVi2M) | [Slide 1](slides/l1.pdf) | ⬇️ |                                     |                                              | |
+| [2. Learning More about SwiftUI](https://youtu.be/3lahkdHEhW8) |                          | ⬇️| [Reading 1](readings/reading_1.pdf) | [Assignment 1](assignments/assignment_1.pdf) | |
+|            [3. MVVM](https://youtu.be/--qKOhdgJAs)             | [Slide 2](slides/l2.pdf) | [Memorize](code/Memorize)                           |                                     |                                              | |
 |  [4. More MVVM enum Optionals](https://youtu.be/oWZOFSYS5GE)   | [Slide 3](slides/l4.pdf) |                           |                                     |                                              | |
 |  [5: Properties Layout @ViewBuilder](https://www.youtube.com/watch?v=ayQl_F_uMS4)   | [Slide 4](slides/l6.pdf) |                           |                                     |                                              | |
