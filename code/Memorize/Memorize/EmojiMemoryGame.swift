@@ -13,7 +13,7 @@ class EmojiMemoryGame: ObservableObject {
     private static let emojis = ["🚗", "🛴", "✈️", "🛵", "⛵️", "🚎", "🚐", "🚛", "🛻", "🏎", "🚂", "🚊", "🚀", "🚁", "🚢", "🛶", "🛥", "🚞", "🚟", "🚃", "🚝", "🚠", "🚋", "🚌", "🚍", "🚎", "🚐", "🚑", "🚒"]
     
     private static func createMemoryGame() -> MemoryGame<String> {
-        MemoryGame(numberOfPairsOfCards: 10) { pairIndex in emojis[pairIndex] }
+        MemoryGame(numberOfPairsOfCards: 6) { pairIndex in emojis[pairIndex] }
     }
     
     // each ModelView creates its own Model

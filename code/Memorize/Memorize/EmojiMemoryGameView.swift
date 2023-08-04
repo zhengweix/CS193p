@@ -9,24 +9,27 @@ import SwiftUI
 
 // View that redraw when change in viewModel game
 struct EmojiMemoryGameView: View {
-    // @ObservedObject: when viewModel says sth changed, plz rebuild my entire body
+    // @ObservedObject: when sth changed in viewModel, entire body will be rebuilt
     @ObservedObject var game: EmojiMemoryGame
-    //shows what's in the model
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 75))]) {
-                ForEach(game.cards) { card in // bag of lego View!
-                    CardView(card: card)
-                        .aspectRatio(2/3, contentMode: .fit)
-                        .onTapGesture {
-                            // ask viewModel to express User intent
-                            game.choose(card)
-                        }
-                }
-            }
+        AspectVGrid(items: game.cards, aspectRatio: 2/3) { card in
+            cardView(for: card)
         }
         .foregroundColor(.red)
         .padding(.horizontal)
+    }
+        
+    @ViewBuilder
+    private func cardView(for card: EmojiMemoryGame.Card) -> some View {
+        if  card.isMatched && !card.isFaceUp {
+            Rectangle().opacity(0)
+        } else {
+            CardView(card: card)
+                .padding(4)
+                .onTapGesture {
+                    game.choose(card)
+                }
+        }
     }
 }
 
@@ -55,9 +58,10 @@ struct CardView: View {
     }
     
     private struct DrawingConstants {
-        static let cornerRadius: CGFloat = 20
-        static let lineWidth: CGFloat = 3
-        static let fontScale: CGFloat = 0.7
+        static let cornerRadius: CGFloat = 10
+        static let lineWidth: CGFloat = 2.5
+        static let fontScale: CGFloat = 0.65
+        static let circlePadding: CGFloat = 5
     }
 }
 
