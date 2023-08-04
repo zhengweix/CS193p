@@ -7,15 +7,25 @@
 
 import SwiftUI
 
-class EmojiMemoryGame {
-    static var emojis = ["🚗", "🛴", "✈️", "🛵", "⛵️", "🚎", "🚐", "🚛", "🛻", "🏎", "🚂", "🚊", "🚀", "🚁", "🚢", "🛶", "🛥", "🚞", "🚟", "🚃", "🚝", "🚠", "🚋", "🚌", "🚍", "🚎", "🚐", "🚑", "🚒"]
-    static func createMemoryGame() -> MemoryGame<String> {
-        MemoryGame<String>(numberOfPairsOfCards: 4, createCardContent:  {pairIndex in
-            emojis[pairIndex]
-        })
+class EmojiMemoryGame: ObservableObject {
+    typealias Card = MemoryGame<String>.Card
+    
+    private static let emojis = ["🚗", "🛴", "✈️", "🛵", "⛵️", "🚎", "🚐", "🚛", "🛻", "🏎", "🚂", "🚊", "🚀", "🚁", "🚢", "🛶", "🛥", "🚞", "🚟", "🚃", "🚝", "🚠", "🚋", "🚌", "🚍", "🚎", "🚐", "🚑", "🚒"]
+    
+    private static func createMemoryGame() -> MemoryGame<String> {
+        MemoryGame(numberOfPairsOfCards: 10) { pairIndex in emojis[pairIndex] }
     }
-    private var model = createMemoryGame()
-    var cards:[MemoryGame<String>.Card] {
+    
+    // each ModelView creates its own Model
+    @Published private var model = createMemoryGame()
+    
+    // and declare its own var for parts that need to be available
+    var cards: [Card] {
         return model.cards
+    }
+    
+    // put functions that show user intent in the viewModel
+    func choose(_ card: Card) {
+        model.choose(card)
     }
 }
