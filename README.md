@@ -14,6 +14,6 @@
 | [2. Learning More about SwiftUI](https://youtu.be/3lahkdHEhW8) |            -             | ⬇️| [Reading 1](readings/reading_1.pdf) | [Assignment 1](assignments/assignment_1.pdf) | [Solution 1](assignments/sol_1) |
 | [3. MVVM](https://youtu.be/--qKOhdgJAs) | [Slide 2](slides/l2.pdf) | ⬇️ | - | - | - |
 | [4. More MVVM enum Optionals](https://youtu.be/oWZOFSYS5GE) | [Slide 3](slides/l4.pdf) | ⬇️ | - | - | - |
-| [5: Properties Layout @ViewBuilder](https://www.youtube.com/watch?v=ayQl_F_uMS4) | [Slide 4](slides/l6.pdf) | ⬇️ | [Reading 2](readings/reading_2.pdf) | [Assignment 2](assignments/assignment_2.pdf) | [Solution 2](assignments/sol_2) |
+| [5: Properties Layout @ViewBuilder](https://www.youtube.com/watch?v=ayQl_F_uMS4) | [Slide 4](slides/l6.pdf) | ⬇️ | [Reading 2](readings/Reading_2.pdf) | [Assignment 2](assignments/assignment_2.pdf) | [Solution 2](assignments/sol_2) |
 | [6: Protocols Shapes](https://www.youtube.com/watch?v=Og9gXZpbKWo) | [Slide 5](slides/l3.pdf) | ⬇️ | - | - | - |
 | [7: ViewModifier Animation](https://youtu.be/PoeaUMGAx6c) | [Slide 6](slides/l6.pdf) | [Memorize](code/Memorize) | - | - | - | 
