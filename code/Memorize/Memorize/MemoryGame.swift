@@ -15,19 +15,19 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     mutating func choose(_ card: Card) {
-        if let choosenIndex = cards.firstIndex(where: {$0.id == card.id}),
-           !cards[choosenIndex].isFaceUp,
-           !cards[choosenIndex].isMatched
+        if let chosenIndex = cards.firstIndex(where: {$0.id == card.id}),
+           !cards[chosenIndex].isFaceUp,
+           !cards[chosenIndex].isMatched
         {
             if let potentialMatchIndex = IndexOfTheOneAndOnlyFaceUpCard {
-                if cards[choosenIndex].content == cards[potentialMatchIndex].content {
-                    cards[choosenIndex].isMatched = true
+                if cards[chosenIndex].content == cards[potentialMatchIndex].content {
+                    cards[chosenIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
                 }
-                cards[choosenIndex].isFaceUp = true
             } else {
-                IndexOfTheOneAndOnlyFaceUpCard = choosenIndex
+                IndexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
+            cards[chosenIndex].isFaceUp = true
         }
     }
     

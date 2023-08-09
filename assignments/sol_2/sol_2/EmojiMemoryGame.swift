@@ -36,7 +36,7 @@ class EmojiMemoryGame: ObservableObject {
         theme.colorGradient
     }
     
-    var gradient: Gradient = Gradient(colors: [.cyan, .teal, .pink, .mint])
+    var gradient: Gradient = Gradient(colors: [.pink, .mint, .teal, .cyan])
     
     static func createMemoryGame(of theme: Theme) -> MemoryGame<String> {
         return MemoryGame(numberOfPairsOfCards: theme.num) { theme.emojis[$0] }
