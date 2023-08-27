@@ -212,3 +212,5 @@ struct SetGame<SymbolShape, SymbolColor, SymbolPattern, SymbolCount> where Symbo
         }
     }
 }
+
+

@@ -7,9 +7,18 @@
 
 import SwiftUI
 
+public class GlobalState: ObservableObject {
+    @Published var isBiPlayer: Bool = false
+    @Published var isColorBlind: Bool = false
+}
+
+public let globalState = GlobalState()
+
 struct SymbolSetGameView: View {
     @ObservedObject var game: SymbolSetGame
-//    @State var twoPlayer: Bool = false
+    @ObservedObject var globalState1 = globalState
+//    @State var isBiPlayer: Bool = false
+//    @State var isColorBlind: Bool = false
     var body: some View {
         Spacer()
         HStack(spacing: DrawingConstants.itemSpacing) {
@@ -46,23 +55,40 @@ struct SymbolSetGameView: View {
             }
             .frame(maxWidth: .infinity)
             VStack {
-                if game.isEnd {
-                    Text("Add Cards")
-                        .bold()
-                        .font(.system(size: 18))
-                        .foregroundColor(.gray)
-                } else {
-                    Button(action: {
-                        withAnimation(.easeIn(duration: 0.2)) {
-                            game.addCards()
+                HStack {
+                    if game.isEnd {
+                        Image(systemName: "plus.square")
+                            .font(.system(size: 30))
+                            .foregroundColor(.gray)
+                    } else {
+                        Button(action: {
+                            withAnimation(.easeIn(duration: 0.2)) {
+                                game.addCards()
+                            }
+                        }) {
+                            Image(systemName: "plus.square")
+                                .font(.system(size: 30))
+                                .foregroundColor(.blue)
                         }
-                    }) {
-                        Text("Add Cards")
-                            .bold()
-                            .font(.system(size: 18))
+                    }
+                
+                    if game.isEnd {
+                        Image(systemName: "eye.square")
+                            .font(.system(size: 30))
+                            .foregroundColor(.gray)
+                    } else {
+                        Button(action: {
+                            withAnimation(.easeIn(duration: 0.2)) {
+                                self.globalState1.isColorBlind.toggle()
+                                
+                            }
+                        }) {
+                            Image(systemName: globalState.isColorBlind ? "eye.square.fill" : "eye.square")
+                                .font(.system(size: 30))
+                                .foregroundColor(.blue)
+                        }
                     }
                 }
-                
             }
             .frame(maxWidth: .infinity)
         }
@@ -122,6 +148,7 @@ struct SymbolSetGameView: View {
     }
     
     struct CardView: View {
+        @ObservedObject var globalState1 = globalState
         let card: SymbolSetGame.Card
         @State var isStrokeVisible: Bool = false
         var body: some View {
@@ -133,13 +160,7 @@ struct SymbolSetGameView: View {
                 cardBorad
                     .strokeBorder(lineWidth: DrawingConstants.effectLineWidth).foregroundColor(.white)
                     .overlay(
-                        VStack {
-                            let symbol: some View = createSymbol(for: card)
-                            ForEach(0..<card.content.symbolCount, id: \.self) { _ in
-                                symbol
-                            }
-                        }
-                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                        overlayContent()
                     )
                     
                 if card.isMatched {
@@ -178,6 +199,27 @@ struct SymbolSetGameView: View {
             case .squiggle:
                 PatternBuilder(shape: Squiggle(), color: card.content.color.get(), pattern: card.content.pattern, width: 2, interval: 2)
             }
+        }
+        
+        @ViewBuilder
+        private func overlayContent() -> some View {
+            VStack {
+                if globalState1.isColorBlind {
+                    Text(card.content.color.desc)
+                        .bold()
+                        .font(.system(size: 24))
+                    let symbol: some View = createSymbol(for: card)
+                    ForEach(0..<card.content.symbolCount, id: \.self) { _ in
+                        symbol
+                    }
+                } else {
+                    let symbol: some View = createSymbol(for: card)
+                    ForEach(0..<card.content.symbolCount, id: \.self) { _ in
+                        symbol
+                    }
+                }
+            }
+            .padding(globalState1.isColorBlind ? EdgeInsets(top: 10, leading: 25, bottom: 10, trailing: 25) : EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
         }
     }
     

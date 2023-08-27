@@ -29,7 +29,7 @@ class SymbolSetGame: ObservableObject, ResetSetTimer {
                 }
             }
         }
-        return contents//.shuffled()
+        return contents.shuffled()
     }()
     
     static private func createSetGame() -> SetGame<SymbolShape, SymbolColor, SymbolPattern, SymbolCount> {
@@ -120,4 +120,17 @@ class SymbolSetGame: ObservableObject, ResetSetTimer {
 
 protocol ResetSetTimer: AnyObject {
     func resetSetTimer()
+}
+
+extension SymbolSetGame.SymbolColor {
+    var desc: String {
+        switch self {
+        case .red:
+            return "R"
+        case .green:
+            return "G"
+        case .purple:
+            return "P"
+        }
+    }
 }

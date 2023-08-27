@@ -13,21 +13,22 @@ struct PatternBuilder<SymbolShape: Shape>: View {
     let pattern: SymbolSetGame.SymbolPattern
     let width: Int
     let interval: Int
+    @ObservedObject var globalState2 = globalState
 
     var body: some View {
         switch pattern {
         case .outlined:
             shape
-                .stroke(color, lineWidth: CGFloat(width))
+                .stroke(globalState2.isColorBlind ? .black : color, lineWidth: CGFloat(width))
                 .padding(CGFloat(width))
         case .solid:
             shape
-                .fill(color)
+                .fill(globalState2.isColorBlind ? .black : color)
         case .striped:
-            StripedPattern(color: color, width: width, interval: interval)
-                .fill(color)
+            StripedPattern(color: globalState2.isColorBlind ? .black : color, width: width, interval: interval)
+                .fill(globalState2.isColorBlind ? .black : color)
                 .mask(shape)
-                .overlay(shape.stroke(color, lineWidth: CGFloat(width)))
+                .overlay(shape.stroke(globalState2.isColorBlind ? .black : color, lineWidth: CGFloat(width)))
                 .padding(CGFloat(width))
         }
     }
