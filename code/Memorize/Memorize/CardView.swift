@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// View for card's apperance and attributes
 struct CardView: View {
     typealias Card = MemoryGame<String>.Card
 
@@ -59,6 +58,26 @@ struct CardView: View {
 extension Animation {
     static func spin(duration: TimeInterval) -> Animation {
         .linear(duration: 1).repeatForever(autoreverses: false)
+    }
+}
+
+struct CardView_Previews: PreviewProvider {
+    typealias Card = CardView.Card
+    
+    static var previews: some View {
+        VStack {
+            HStack {
+                CardView(Card(isFaceUp: true, content: "X", id: "test1"))
+                    .aspectRatio(4/3, contentMode: .fit)
+                CardView(Card(content: "X", id: "test1"))
+            }
+            HStack {
+                CardView(Card(isFaceUp: true, isMatched: true, content: "This is a very long string and I hope it fits", id: "test1"))
+                CardView(Card(isMatched: true, content: "X", id: "test1"))
+            }
+        }
+            .padding()
+            .foregroundColor(.green)
     }
 }
 

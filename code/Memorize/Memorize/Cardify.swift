@@ -15,13 +15,13 @@ struct Cardify: ViewModifier, Animatable {
     var isFaceUp: Bool {
         rotation < 90
     }
+
+    var rotation: Double
     
     var animatableData: Double {
-        get{ rotation }
-        set{ rotation = newValue }
+        get { rotation }
+        set { rotation = newValue }
     }
-    
-    var rotation: Double
     
     func body(content: Content) -> some View {
         ZStack {
@@ -33,7 +33,7 @@ struct Cardify: ViewModifier, Animatable {
             base.fill()
                 .opacity(isFaceUp ? 0 : 1)
         }
-        .rotation3DEffect(Angle.degrees(rotation), axis: (0, 1, 0))
+        .rotation3DEffect(.degrees(rotation), axis: (0,1,0))
     }
     
     private struct Constants {
