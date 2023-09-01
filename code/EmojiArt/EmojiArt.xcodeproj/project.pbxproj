@@ -68,14 +68,14 @@
 				9C257EF82A9C62A000E1187E /* EmojiArtApp.swift */,
 				9C257F062A9C639700E1187E /* EmojiArt.swift */,
 				9C257F082A9C653700E1187E /* EmojiArtDocument.swift */,
+				9C257F0C2A9C671600E1187E /* EmojiArtDocumentView.swift */,
 				9C8302012A9F1F550032B135 /* Palette.swift */,
 				9C8302052A9F208B0032B135 /* PaletteStore.swift */,
-				9C257F0C2A9C671600E1187E /* EmojiArtDocumentView.swift */,
+				9C8302072AA008480032B135 /* PaletteChooser.swift */,
 				9C257F0E2A9C6D7500E1187E /* Extensions.swift */,
 				9C9D897E2A9D5BE700DC1D72 /* Sturldata.swift */,
 				9C257EFC2A9C62A600E1187E /* Assets.xcassets */,
 				9C257EFE2A9C62A600E1187E /* Preview Content */,
-				9C8302072AA008480032B135 /* PaletteChooser.swift */,
 			);
 			path = EmojiArt;
 			sourceTree = "<group>";

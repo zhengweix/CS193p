@@ -67,4 +67,3 @@ struct PaletteChooser_Previews: PreviewProvider {
             .environmentObject(PaletteStore(named: "Preview"))
     }
 }
-
