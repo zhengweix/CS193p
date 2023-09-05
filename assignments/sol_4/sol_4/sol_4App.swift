@@ -8,10 +8,11 @@
 import SwiftUI
 
 @main
-struct sol_4App: App {
+struct sol_3App: App {
+    let game = SymbolSetGame()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SymbolSetGameView(game: game)
         }
     }
 }

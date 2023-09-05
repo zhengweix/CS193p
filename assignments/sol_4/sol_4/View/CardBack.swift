@@ -9,10 +9,8 @@ import SwiftUI
 
 struct CardBack: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image("cardBG")
+            .resizable()
+            .aspectRatio(2/3, contentMode: .fill)
     }
-}
-
-#Preview {
-    CardBack()
 }

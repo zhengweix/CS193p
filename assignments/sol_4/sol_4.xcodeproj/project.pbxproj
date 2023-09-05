@@ -7,18 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C3B3B322A9D73FA00B065F3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3B3B312A9D73FA00B065F3 /* CardView.swift */; };
+		9C3B3B362A9D9AAF00B065F3 /* CardBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3B3B352A9D9AAF00B065F3 /* CardBack.swift */; };
 		9C9D895E2A9D5A2900DC1D72 /* sol_4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D895D2A9D5A2900DC1D72 /* sol_4App.swift */; };
-		9C9D89602A9D5A2900DC1D72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D895F2A9D5A2900DC1D72 /* ContentView.swift */; };
 		9C9D89622A9D5A2F00DC1D72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9D89612A9D5A2F00DC1D72 /* Assets.xcassets */; };
 		9C9D89652A9D5A2F00DC1D72 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9D89642A9D5A2F00DC1D72 /* Preview Assets.xcassets */; };
+		9C9D89702A9D5B0800DC1D72 /* SymbolSetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D896E2A9D5B0800DC1D72 /* SymbolSetGame.swift */; };
+		9C9D89712A9D5B0800DC1D72 /* SymbolSetGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D896F2A9D5B0800DC1D72 /* SymbolSetGameView.swift */; };
+		9C9D89732A9D5B1800DC1D72 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D89722A9D5B1800DC1D72 /* SetGame.swift */; };
+		9C9D89792A9D5B3700DC1D72 /* Squiggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D89742A9D5B3700DC1D72 /* Squiggle.swift */; };
+		9C9D897A2A9D5B3700DC1D72 /* Diamond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D89752A9D5B3700DC1D72 /* Diamond.swift */; };
+		9C9D897B2A9D5B3700DC1D72 /* Oval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D89762A9D5B3700DC1D72 /* Oval.swift */; };
+		9C9D897C2A9D5B3700DC1D72 /* SymbolBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D89772A9D5B3700DC1D72 /* SymbolBuilder.swift */; };
+		9C9D897D2A9D5B3700DC1D72 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9D89782A9D5B3700DC1D72 /* AspectVGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9C3B3B312A9D73FA00B065F3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		9C3B3B352A9D9AAF00B065F3 /* CardBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBack.swift; sourceTree = "<group>"; };
 		9C9D895A2A9D5A2900DC1D72 /* sol_4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sol_4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9D895D2A9D5A2900DC1D72 /* sol_4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sol_4App.swift; sourceTree = "<group>"; };
-		9C9D895F2A9D5A2900DC1D72 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9C9D89612A9D5A2F00DC1D72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C9D89642A9D5A2F00DC1D72 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9C9D896E2A9D5B0800DC1D72 /* SymbolSetGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolSetGame.swift; sourceTree = "<group>"; };
+		9C9D896F2A9D5B0800DC1D72 /* SymbolSetGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolSetGameView.swift; sourceTree = "<group>"; };
+		9C9D89722A9D5B1800DC1D72 /* SetGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
+		9C9D89742A9D5B3700DC1D72 /* Squiggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Squiggle.swift; sourceTree = "<group>"; };
+		9C9D89752A9D5B3700DC1D72 /* Diamond.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diamond.swift; sourceTree = "<group>"; };
+		9C9D89762A9D5B3700DC1D72 /* Oval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Oval.swift; sourceTree = "<group>"; };
+		9C9D89772A9D5B3700DC1D72 /* SymbolBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymbolBuilder.swift; sourceTree = "<group>"; };
+		9C9D89782A9D5B3700DC1D72 /* AspectVGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +70,9 @@
 			isa = PBXGroup;
 			children = (
 				9C9D895D2A9D5A2900DC1D72 /* sol_4App.swift */,
-				9C9D895F2A9D5A2900DC1D72 /* ContentView.swift */,
+				9C9D896D2A9D5AD400DC1D72 /* Model */,
+				9C9D896B2A9D5A3900DC1D72 /* View */,
+				9C9D896C2A9D5A5200DC1D72 /* ViewModel */,
 				9C9D89612A9D5A2F00DC1D72 /* Assets.xcassets */,
 				9C9D89632A9D5A2F00DC1D72 /* Preview Content */,
 			);
@@ -65,6 +85,37 @@
 				9C9D89642A9D5A2F00DC1D72 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9C9D896B2A9D5A3900DC1D72 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9C9D89782A9D5B3700DC1D72 /* AspectVGrid.swift */,
+				9C9D89752A9D5B3700DC1D72 /* Diamond.swift */,
+				9C9D89762A9D5B3700DC1D72 /* Oval.swift */,
+				9C9D89742A9D5B3700DC1D72 /* Squiggle.swift */,
+				9C9D89772A9D5B3700DC1D72 /* SymbolBuilder.swift */,
+				9C3B3B312A9D73FA00B065F3 /* CardView.swift */,
+				9C3B3B352A9D9AAF00B065F3 /* CardBack.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9C9D896C2A9D5A5200DC1D72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9C9D896E2A9D5B0800DC1D72 /* SymbolSetGame.swift */,
+				9C9D896F2A9D5B0800DC1D72 /* SymbolSetGameView.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9C9D896D2A9D5AD400DC1D72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9C9D89722A9D5B1800DC1D72 /* SetGame.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +188,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C9D89602A9D5A2900DC1D72 /* ContentView.swift in Sources */,
+				9C9D897A2A9D5B3700DC1D72 /* Diamond.swift in Sources */,
+				9C3B3B362A9D9AAF00B065F3 /* CardBack.swift in Sources */,
+				9C9D89792A9D5B3700DC1D72 /* Squiggle.swift in Sources */,
+				9C9D89702A9D5B0800DC1D72 /* SymbolSetGame.swift in Sources */,
+				9C9D897C2A9D5B3700DC1D72 /* SymbolBuilder.swift in Sources */,
+				9C3B3B322A9D73FA00B065F3 /* CardView.swift in Sources */,
+				9C9D897B2A9D5B3700DC1D72 /* Oval.swift in Sources */,
+				9C9D89712A9D5B0800DC1D72 /* SymbolSetGameView.swift in Sources */,
+				9C9D89732A9D5B1800DC1D72 /* SetGame.swift in Sources */,
 				9C9D895E2A9D5A2900DC1D72 /* sol_4App.swift in Sources */,
+				9C9D897D2A9D5B3700DC1D72 /* AspectVGrid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

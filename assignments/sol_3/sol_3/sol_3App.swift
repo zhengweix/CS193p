@@ -16,5 +16,3 @@ struct sol_3App: App {
         }
     }
 }
-
-
