@@ -5,7 +5,7 @@
 //  Created by Wei Zheng on 2023/8/30.
 //
 
-import Foundation
+import SwiftUI
 
 extension UserDefaults {
     func palettes(forKey key: String) -> [Palette] {
@@ -16,16 +16,26 @@ extension UserDefaults {
             return []
         }
     }
-    
     func set(_ palettes: [Palette], forKey key: String) {
         let data = try? JSONEncoder().encode(palettes)
         set(data, forKey: key)
     }
 }
 
-class PaletteStore: ObservableObject {
+extension PaletteStore: Hashable {
+    static func == (lhs: PaletteStore, rhs: PaletteStore) -> Bool {
+        lhs.name == rhs.name
+    }
     
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+}
+
+class PaletteStore: ObservableObject, Identifiable {
     let name: String
+    
+    var id: String{ name }
     
     private var userDefaultsKey: String { "PaletteStore:" + name }
     
@@ -40,12 +50,14 @@ class PaletteStore: ObservableObject {
             }
         }
     }
-     
+    
     init(named name: String) {
         self.name = name
-        palettes = Palette.builtins
         if palettes.isEmpty {
-            palettes = [Palette(name: "Warning", emojis: "⚠️")]
+            palettes = Palette.builtins
+            if palettes.isEmpty {
+                palettes = [Palette(name: "Warning", emojis: "⚠️")]
+            }
         }
     }
     
@@ -56,6 +68,7 @@ class PaletteStore: ObservableObject {
         set { _cursorIndex = boundsCheckedPaletteIndex(newValue) }
     }
     
+    
     private func boundsCheckedPaletteIndex(_ index: Int) -> Int {
         var index = index % palettes.count
         if index < 0 {
@@ -65,6 +78,12 @@ class PaletteStore: ObservableObject {
     }
     
     // MARK: - Adding Palettes
+    
+    // these functions are the recommended way to add Palettes to the PaletteStore
+    // since they try to avoid duplication of Identifiable-ly identical Palettes
+    // by first removing/replacing any Palette with the same id that is already in palettes
+    // it does not "remedy" existing duplication, it just does not "cause" new duplication
+    
     func insert(_ palette: Palette, at insertionIndex: Int? = nil) { // "at" default is cursorIndex
         let insertionIndex = boundsCheckedPaletteIndex(insertionIndex ?? cursorIndex)
         if let index = palettes.firstIndex(where: { $0.id == palette.id }) {
@@ -79,7 +98,7 @@ class PaletteStore: ObservableObject {
         insert(Palette(name: name, emojis: emojis), at: index)
     }
     
-    func append(_ palette: Palette) {
+    func append(_ palette: Palette) { // at end of palettes
         if let index = palettes.firstIndex(where: { $0.id == palette.id }) {
             if palettes.count == 1 {
                 palettes = [palette]
@@ -96,3 +115,4 @@ class PaletteStore: ObservableObject {
         append(Palette(name: name, emojis: emojis))
     }
 }
+

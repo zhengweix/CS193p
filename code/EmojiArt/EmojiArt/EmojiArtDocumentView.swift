@@ -13,7 +13,7 @@ struct EmojiArtDocumentView: View {
     @ObservedObject var document: EmojiArtDocument
     
     private let paletteEmojiSize: CGFloat = 40
-    
+
     var body: some View {
         VStack(spacing: 0) {
             documentBody
@@ -39,6 +39,27 @@ struct EmojiArtDocumentView: View {
         }
     }
     
+    @ViewBuilder
+    private func documentContents(in geometry: GeometryProxy) -> some View {
+        AsyncImage(url: document.background) { phase in
+            if let image = phase.image {
+                image
+            } else if let url = document.background {
+                if phase.error != nil {
+                    Text("\(url)")
+                } else {
+                    ProgressView()
+                }
+            }
+        }
+            .position(Emoji.Position.zero.in(geometry))
+        ForEach(document.emojis) { emoji in
+            Text(emoji.string)
+                .font(emoji.font)
+                .position(emoji.position.in(geometry))
+        }
+    }
+
     @State private var zoom: CGFloat = 1
     @State private var pan: CGOffset = .zero
     
@@ -63,28 +84,6 @@ struct EmojiArtDocumentView: View {
             .onEnded { endingDragGestureValue in
                 pan += endingDragGestureValue.translation
             }
-    }
-    
-    @ViewBuilder
-    private func documentContents(in geometry: GeometryProxy) -> some View {
-        AsyncImage(url: document.background) { phase in
-            if let image = phase.image {
-                image
-            } else if let url = document.background {
-                if phase.error != nil {
-                    Text("\(url)")
-                } else {
-                    ProgressView()
-                }
-            }
-            
-        }
-            .position(Emoji.Position.zero.in(geometry))
-        ForEach(document.emojis) { emoji in
-            Text(emoji.string)
-                .font(emoji.font)
-                .position(emoji.position.in(geometry))
-        }
     }
     
     private func drop(_ sturldatas: [Sturldata], at location: CGPoint, in geometry: GeometryProxy) -> Bool {

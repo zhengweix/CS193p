@@ -108,7 +108,7 @@ struct EmojiMemoryGameView: View {
     }
     
     private func deal() {
-        var delay: TimeInterval = 0
+        var delay: TimeInterval = 1
         for card in viewModel.cards {
             withAnimation(dealAnimation.delay(delay)) {
                 _ = dealt.insert(card.id)

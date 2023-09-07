@@ -44,7 +44,7 @@ struct EmojiArt: Codable {
             return nil
         }
     }
-    
+
     subscript(_ emoji: Emoji) -> Emoji {
         get {
             if let index = index(of: emoji.id) {
