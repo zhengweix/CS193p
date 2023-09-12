@@ -22,6 +22,7 @@ struct EmojiArtApp: App {
 //            )
             EmojiArtDocumentView(document: defaultDocument)
                 .environmentObject(paletteStore)
+            
         }
     }
 }
