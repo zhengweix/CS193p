@@ -22,16 +22,6 @@ extension UserDefaults {
     }
 }
 
-extension PaletteStore: Hashable {
-    static func == (lhs: PaletteStore, rhs: PaletteStore) -> Bool {
-        lhs.name == rhs.name
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-    }
-}
-
 class PaletteStore: ObservableObject, Identifiable {
     let name: String
     
@@ -59,6 +49,21 @@ class PaletteStore: ObservableObject, Identifiable {
                 palettes = [Palette(name: "Warning", emojis: "⚠️")]
             }
         }
+        observer = NotificationCenter.default.addObserver(
+            forName: UserDefaults.didChangeNotification,
+            object: nil,
+            queue: .main) { [weak self] notification in
+                self?.objectWillChange.send()
+            }
+    }
+    
+    @State private var observer: NSObjectProtocol?
+    
+    deinit {
+        print("remove observer")
+        if let observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     @Published private var _cursorIndex = 0
@@ -67,7 +72,6 @@ class PaletteStore: ObservableObject, Identifiable {
         get { boundsCheckedPaletteIndex(_cursorIndex) }
         set { _cursorIndex = boundsCheckedPaletteIndex(newValue) }
     }
-    
     
     private func boundsCheckedPaletteIndex(_ index: Int) -> Int {
         var index = index % palettes.count
@@ -79,12 +83,7 @@ class PaletteStore: ObservableObject, Identifiable {
     
     // MARK: - Adding Palettes
     
-    // these functions are the recommended way to add Palettes to the PaletteStore
-    // since they try to avoid duplication of Identifiable-ly identical Palettes
-    // by first removing/replacing any Palette with the same id that is already in palettes
-    // it does not "remedy" existing duplication, it just does not "cause" new duplication
-    
-    func insert(_ palette: Palette, at insertionIndex: Int? = nil) { // "at" default is cursorIndex
+    func insert(_ palette: Palette, at insertionIndex: Int? = nil) {
         let insertionIndex = boundsCheckedPaletteIndex(insertionIndex ?? cursorIndex)
         if let index = palettes.firstIndex(where: { $0.id == palette.id }) {
             palettes.move(fromOffsets: IndexSet([index]), toOffset: insertionIndex)
@@ -98,7 +97,7 @@ class PaletteStore: ObservableObject, Identifiable {
         insert(Palette(name: name, emojis: emojis), at: index)
     }
     
-    func append(_ palette: Palette) { // at end of palettes
+    func append(_ palette: Palette) {
         if let index = palettes.firstIndex(where: { $0.id == palette.id }) {
             if palettes.count == 1 {
                 palettes = [palette]
@@ -116,3 +115,12 @@ class PaletteStore: ObservableObject, Identifiable {
     }
 }
 
+extension PaletteStore: Hashable {
+    static func == (lhs: PaletteStore, rhs: PaletteStore) -> Bool {
+        lhs.name == rhs.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+}
