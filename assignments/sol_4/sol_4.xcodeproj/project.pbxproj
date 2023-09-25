@@ -97,6 +97,7 @@
 				9C9D89772A9D5B3700DC1D72 /* SymbolBuilder.swift */,
 				9C3B3B312A9D73FA00B065F3 /* CardView.swift */,
 				9C3B3B352A9D9AAF00B065F3 /* CardBack.swift */,
+				9C9D896F2A9D5B0800DC1D72 /* SymbolSetGameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				9C9D896E2A9D5B0800DC1D72 /* SymbolSetGame.swift */,
-				9C9D896F2A9D5B0800DC1D72 /* SymbolSetGameView.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
