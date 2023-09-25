@@ -1,11 +1,11 @@
-<h1><img src="assests/stanford.svg" width="90" height="90" /> <br/> CS193p: Developing Apps for iOS</h1>
+<h1><img src="assets/stanford.svg" width="90" height="90" /> <br/> CS193p: Developing Apps for iOS</h1>
 <b>Developing Applications for iOS, explains the fundamentals of how to build applications for iPhone and iPad using SwiftUI. </b>
 <br />
 <br />
-<img src="assests/paul_hegarty.webp" width="120" height="120" />
+<img src="assets/paul_hegarty.webp" width="120" height="120" />
 <span>Instructor: <a href="https://explorecourses.stanford.edu/instructor/phegarty">Paul Hegarty</a></span>
 <br />
-<span>Semester: 2023 Spring</span>
+<span>Semester: Spring 2023</span>
 
 ## Overall
 |                                      Lecture                                      |            Slide            |           Code            |            Reading             |               Homework               |            Solutions            |
